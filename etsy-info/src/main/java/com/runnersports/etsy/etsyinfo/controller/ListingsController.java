@@ -4,9 +4,13 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,23 +20,25 @@ import org.springframework.web.bind.annotation.RestController;
 public class ListingsController {
 
 	@GetMapping("/gr/empty")
-	public void getEmptyGRListings() throws IOException {
+	public ResponseEntity<List<String>> getEmptyGRListings() throws IOException {
 
+		List<String> results = new ArrayList<String>();
 		Iterable<CSVRecord> records = getRecords();
 		for (CSVRecord record : records) {
 			String title = record.get("TITLE");
 			String description = record.get("DESCRIPTION");
 			String tubNumber = getGRNumber(description);
 			if ("GR".equals(tubNumber))
-				System.err.println("EMPTY GR: " + title);
+				results.add("EMPTY GR: " + title);
 			if (tubNumber.length() > 25)
-				System.err.println("MISSING TUB: " + title);
-			// System.out.println(getGRNumber(description));
+				results.add("MISSING TUB: " + title);
 		}
+		
+		return new ResponseEntity<List<String>>(results, HttpStatus.OK);
 	}
 
 	@GetMapping("/values")
-	public void getValues() throws IOException {
+	public ResponseEntity<String> getValues() throws IOException {
 
 		Iterable<CSVRecord> records = getRecords();
 		BigDecimal total = new BigDecimal("0");
@@ -45,7 +51,7 @@ public class ListingsController {
 			count++;
 		}
 
-		System.err.println(count + " listings for a total of: " + total);
+		return new ResponseEntity<String>(count + " listings for a total of: " + total, HttpStatus.OK);
 	}
 
 	private String getGRNumber(String description) {

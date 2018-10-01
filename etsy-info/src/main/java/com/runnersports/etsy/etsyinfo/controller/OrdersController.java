@@ -7,6 +7,8 @@ import java.math.BigDecimal;
 
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVRecord;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrdersController {
 
 	@GetMapping("/taxes")
-	public void getTaxes() throws IOException {
+	public ResponseEntity<String> getTaxes() throws IOException {
 
 		Iterable<CSVRecord> records = getRecords();
 		int totalTaxedOrders = 0;
@@ -31,7 +33,7 @@ public class OrdersController {
 			}
 		}
 		
-		System.out.println(totalTaxedOrders + " taxed orders, totalling: " + totalOrderValue + " and withheld " + totalTaxes);
+		return new ResponseEntity<String>(totalTaxedOrders + " taxed orders, totalling: " + totalOrderValue + " and withheld " + totalTaxes, HttpStatus.OK);
 	}
 
 	private Iterable<CSVRecord> getRecords() throws IOException {
