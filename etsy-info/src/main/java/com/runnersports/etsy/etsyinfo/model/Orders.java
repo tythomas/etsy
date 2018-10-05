@@ -27,4 +27,23 @@ public class Orders {
 		return orders;
 	}
 
+	public OrderSummary findAllILOrders() throws IOException {
+		
+		OrderSummary ilOrders = new OrderSummary();
+		for (Order order : this.getAll()) {
+			if (order.isILOrder()) {
+				ilOrders.add(order);
+			}
+		}
+		return ilOrders;
+	}
+
+	public OrderSummary findAllOrders() throws IOException {
+		OrderSummary allOrders = new OrderSummary();
+		for (Order order : this.getAll()) {
+			allOrders.add(order);
+		}
+		return allOrders;
+	}
+
 }

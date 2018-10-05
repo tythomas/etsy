@@ -25,5 +25,8 @@ public class Order {
 		return new BigDecimal(record.get("Order Value"));
 	}
 
-	
+	public BigDecimal getShippingAmount() {
+		return new BigDecimal(record.get("Shipping"));
+	}
+
 }
