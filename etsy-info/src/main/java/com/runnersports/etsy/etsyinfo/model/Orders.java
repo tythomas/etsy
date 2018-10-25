@@ -23,6 +23,7 @@ public class Orders {
 			for (CSVRecord record : CSVFormat.RFC4180.withHeader().parse(in)) {
 				orders.add(new Order(record));
 			}
+			in.close();
 		}
 		return orders;
 	}
