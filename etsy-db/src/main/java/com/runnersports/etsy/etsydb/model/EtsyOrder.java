@@ -15,7 +15,7 @@ public class EtsyOrder {
 	private String state;
 	private BigDecimal orderValue;
 	private BigDecimal discount;
-	private String shippingAmount;
+	private BigDecimal shippingAmount;
 	private Integer quantity;
 	private BigDecimal salesTax;
 	
@@ -63,11 +63,11 @@ public class EtsyOrder {
 		this.discount = discount;
 	}
 
-	public String getShippingAmount() {
+	public BigDecimal getShippingAmount() {
 		return shippingAmount;
 	}
 
-	public void setShippingAmount(String shippingAmount) {
+	public void setShippingAmount(BigDecimal shippingAmount) {
 		this.shippingAmount = shippingAmount;
 	}
 

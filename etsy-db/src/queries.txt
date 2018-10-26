@@ -1,0 +1,3 @@
+Sales Tax Payable
+SELECT count(*) as numsales, sum(order_value) as total, sum(sales_tax) as totaltax FROM ETSY_ORDER where state = 'IL'
+
