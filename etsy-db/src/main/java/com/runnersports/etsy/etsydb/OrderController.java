@@ -22,15 +22,16 @@ public class OrderController {
 	
 	@GetMapping("/iltax")
 	public ResponseEntity<String> getTaxes() throws IOException {
-
-
 		return new ResponseEntity<String>(orderSummaryRepository.getILSalesTax().toString(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/statesummary")
 	public ResponseEntity<List<OrderSummary>> getStateSummary() throws IOException {
-
-
 		return new ResponseEntity<List<OrderSummary>>(orderSummaryRepository.getSummaryByState(), HttpStatus.OK);
+	}
+	
+	@GetMapping("/allorders")
+	public ResponseEntity<List<OrderSummary>> getAllOrderSummary() throws IOException {
+		return new ResponseEntity<List<OrderSummary>>(orderSummaryRepository.getAllSales(), HttpStatus.OK);
 	}
 }

@@ -18,6 +18,13 @@ public class OrderSummary {
 		this.state = state;
 	}
 
+	public OrderSummary(Long numOrders, BigDecimal totalAmount, BigDecimal totalTax, BigDecimal totalShipping) {
+		this.numOrders = numOrders.intValue();
+		this.totalAmount = totalAmount;
+		this.totalTax = totalTax;
+		this.totalShipping = totalShipping;
+	}
+
 	public BigDecimal getTotalAmount() {
 		return totalAmount;
 	}

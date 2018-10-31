@@ -5,9 +5,11 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class EtsyOrder {
+@Table(name="SOLD_ORDER")
+public class Order {
 
 	@Id
 	private Long orderId;
@@ -19,7 +21,7 @@ public class EtsyOrder {
 	private Integer quantity;
 	private BigDecimal salesTax;
 	
-	public EtsyOrder() {
+	public Order() {
 		super();
 	}
 
