@@ -1,0 +1,10 @@
+<mat-card>
+    <mat-card-title>Summary by State</mat-card-title>
+    <mat-list dense>
+            <mat-list-item *ngFor="let item of chatMessages$ | async">
+                    <h3 mat-line>{{item.state}}</h3>
+                    <h4 mat-line>{{item.numOrders}}</h4>
+            </mat-list-item>
+    </mat-list>
+</mat-card>
+    

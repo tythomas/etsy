@@ -27,7 +27,6 @@ public class ListingProcessor implements ItemProcessor<Listing, Listing>{
 		if (item.getPic8().length() > 0) count++;
 		if (item.getPic9().length() > 0) count++;
 		if (item.getPic10().length() > 0) count++;
-		System.out.println(item.getPic10());
 		item.setNumPictures(count);
 		
 		return item;
