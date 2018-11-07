@@ -27,9 +27,9 @@ public class OrderSummaryRepository {
 		return (List<OrderSummary>) em.createQuery(query).getResultList();
 	}
 	
-	public List<OrderSummary> getAllSales() {
+	public OrderSummary getAllSales() {
 		
 		String query = "SELECT NEW com.runnersports.etsy.etsydb.model.OrderSummary(count(*), sum(orderValue), sum(salesTax), sum(shippingAmount)) FROM Order";
-		return (List<OrderSummary>) em.createQuery(query).getResultList();
+		return (OrderSummary) em.createQuery(query).getSingleResult();
 	}
 }

@@ -21,8 +21,8 @@ public class OrderController {
 	private OrderSummaryRepository orderSummaryRepository;
 	
 	@GetMapping("/iltax")
-	public ResponseEntity<String> getTaxes() throws IOException {
-		return new ResponseEntity<String>(orderSummaryRepository.getILSalesTax().toString(), HttpStatus.OK);
+	public ResponseEntity<OrderSummary> getTaxes() throws IOException {
+		return new ResponseEntity<OrderSummary>(orderSummaryRepository.getILSalesTax(), HttpStatus.OK);
 	}
 	
 	@GetMapping("/statesummary")
@@ -31,7 +31,7 @@ public class OrderController {
 	}
 	
 	@GetMapping("/allorders")
-	public ResponseEntity<List<OrderSummary>> getAllOrderSummary() throws IOException {
-		return new ResponseEntity<List<OrderSummary>>(orderSummaryRepository.getAllSales(), HttpStatus.OK);
+	public ResponseEntity<OrderSummary> getAllOrderSummary() throws IOException {
+		return new ResponseEntity<OrderSummary>(orderSummaryRepository.getAllSales(), HttpStatus.OK);
 	}
 }

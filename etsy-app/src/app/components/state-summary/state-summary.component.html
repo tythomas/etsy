@@ -1,0 +1,13 @@
+<mat-card>
+    <mat-card-title>Summary by State</mat-card-title>
+    <mat-grid-list cols="3" rowHeight="30px" gutterSize="10px">
+        <mat-grid-tile class="list-title">State</mat-grid-tile>
+        <mat-grid-tile class="list-title">Orders</mat-grid-tile>
+        <mat-grid-tile class="list-title">Total Sales</mat-grid-tile>
+        <ng-container *ngFor="let item of orderSummaries">
+            <mat-grid-tile class="list-cell">{{item.state}}</mat-grid-tile>
+            <mat-grid-tile class="list-cel">{{item.numOrders}}</mat-grid-tile>
+            <mat-grid-tile class="list-cell">{{item.totalAmount | currency}}</mat-grid-tile>
+        </ng-container>
+    </mat-grid-list>
+</mat-card>

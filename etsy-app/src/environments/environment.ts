@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  getOrderApi: 'http://localhost:8080/order'
+  getStateSummaryApi: 'http://localhost:8080/order/statesummary',
+  getAllOrdersSummaryApi: 'http://localhost:8080/order/allorders'
 };
 
 /*

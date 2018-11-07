@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 
-import { OrderService } from '../services/order.service';
+import { StateSummaryService } from './state-summary/state-summary.service';
+import { AllOrdersSummaryService } from './all-orders-summary/all-orders-summary.service';
 
 @NgModule({
     imports: [
@@ -10,7 +11,8 @@ import { OrderService } from '../services/order.service';
         HttpClientModule
     ],
     providers: [
-        OrderService
+        StateSummaryService,
+        AllOrdersSummaryService
     ]
 })
 export class ServicesModule {}

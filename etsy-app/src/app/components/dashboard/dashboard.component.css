@@ -1,0 +1,18 @@
+
+  .flex-container {
+    clear: both;
+    margin: auto;
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.flex-item {
+    page-break-after: always;
+    break-after: always;
+}
+
+.mat-card-title {
+    font-size: small;
+}
