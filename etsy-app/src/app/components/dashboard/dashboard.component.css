@@ -11,6 +11,7 @@
 .flex-item {
     page-break-after: always;
     break-after: always;
+    padding: 10px;
 }
 
 .mat-card-title {

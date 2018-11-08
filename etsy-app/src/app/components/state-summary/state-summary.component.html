@@ -1,13 +1,33 @@
 <mat-card>
-    <mat-card-title>Summary by State</mat-card-title>
-    <mat-grid-list cols="3" rowHeight="30px" gutterSize="10px">
-        <mat-grid-tile class="list-title">State</mat-grid-tile>
-        <mat-grid-tile class="list-title">Orders</mat-grid-tile>
-        <mat-grid-tile class="list-title">Total Sales</mat-grid-tile>
-        <ng-container *ngFor="let item of orderSummaries">
-            <mat-grid-tile class="list-cell">{{item.state}}</mat-grid-tile>
-            <mat-grid-tile class="list-cel">{{item.numOrders}}</mat-grid-tile>
-            <mat-grid-tile class="list-cell">{{item.totalAmount | currency}}</mat-grid-tile>
+    <mat-card-title>Orders by State</mat-card-title>
+    <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" >
+
+        <ng-container matColumnDef="state">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> State </th>
+            <td mat-cell *matCellDef="let element"> {{element.state}} </td>
         </ng-container>
-    </mat-grid-list>
+
+        <ng-container matColumnDef="numOrders">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Orders </th>
+            <td mat-cell *matCellDef="let element"> {{element.numOrders}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalAmount">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  Sales </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalAmount | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalShipping">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  Shipping </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalShipping | currency}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="totalTax">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  Tax </th>
+            <td mat-cell *matCellDef="let element"> {{element.totalTax | currency}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 </mat-card>

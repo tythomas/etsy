@@ -53,6 +53,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
         MatProgressBarModule,
         MatTooltipModule,
         MatListModule,
+        MatSortModule,
         MatProgressSpinnerModule
     ],
     exports: [
