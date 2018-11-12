@@ -41,7 +41,20 @@ public class Listing {
 	
 	@Transient
 	String pic7;
+
+	@Transient
+	String pic8;
 	
+	@Transient
+	String pic9;
+	
+	@Transient
+	String pic10;
+	
+	private String tub;
+	private Integer numPictures;
+
+
 	public String getPic1() {
 		return pic1;
 	}
@@ -122,15 +135,6 @@ public class Listing {
 		this.pic10 = pic10;
 	}
 
-	@Transient
-	String pic8;
-	
-	@Transient
-	String pic9;
-	
-	@Transient
-	String pic10;
-	
 	public String getDescription() {
 		return description;
 	}
@@ -138,9 +142,6 @@ public class Listing {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	private String tub;
-	private Integer numPictures;
 
 	public Long getId() {
 		return id;

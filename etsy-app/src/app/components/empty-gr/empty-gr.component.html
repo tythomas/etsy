@@ -1,0 +1,10 @@
+<mat-card>
+  <mat-card-title>Listings with "GR"</mat-card-title>
+  <mat-card-content>
+  <mat-list>
+    <mat-list-item *ngFor="let listing of listings">
+        <p mat-line> {{listing.title}} </p>
+    </mat-list-item>
+  </mat-list>
+  </mat-card-content>
+</mat-card>

@@ -27,4 +27,7 @@ export class AllOrderSummaryComponent implements OnInit, OnDestroy {
         this.orderSummariesSub.unsubscribe();
   }
 
+  OnMatCardClickEvent() {
+    console.log("HERE");
+  }
 }

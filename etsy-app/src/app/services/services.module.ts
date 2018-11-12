@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { StateSummaryService } from './state-summary/state-summary.service';
 import { AllOrdersSummaryService } from './all-orders-summary/all-orders-summary.service';
+import { EmptyGRService } from './empty-gr/empty-gr.service';
 
 @NgModule({
     imports: [
@@ -12,6 +13,7 @@ import { AllOrdersSummaryService } from './all-orders-summary/all-orders-summary
     ],
     providers: [
         StateSummaryService,
+        EmptyGRService,
         AllOrdersSummaryService
     ]
 })

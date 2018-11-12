@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   getStateSummaryApi: 'http://localhost:8080/order/statesummary',
-  getAllOrdersSummaryApi: 'http://localhost:8080/order/allorders'
+  getLatestDateApi: 'http://localhost:8080/order/latest',
+  getAllOrdersSummaryApi: 'http://localhost:8080/order/allorders',
+  getEmptyGRApi: 'http://localhost:8080/listing/gr'
 };
 
 /*

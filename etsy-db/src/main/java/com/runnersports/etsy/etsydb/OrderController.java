@@ -1,6 +1,7 @@
 package com.runnersports.etsy.etsydb;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.runnersports.etsy.etsydb.model.OrderSummary;
+import com.runnersports.etsy.etsydb.repository.OrderRepository;
 import com.runnersports.etsy.etsydb.repository.OrderSummaryRepository;
 
 @RestController
@@ -19,6 +21,9 @@ public class OrderController {
 
 	@Autowired
 	private OrderSummaryRepository orderSummaryRepository;
+	
+	@Autowired
+	private OrderRepository orderRepository;
 	
 	@GetMapping("/iltax")
 	public ResponseEntity<OrderSummary> getTaxes() throws IOException {
@@ -33,5 +38,11 @@ public class OrderController {
 	@GetMapping("/allorders")
 	public ResponseEntity<OrderSummary> getAllOrderSummary() throws IOException {
 		return new ResponseEntity<OrderSummary>(orderSummaryRepository.getAllSales(), HttpStatus.OK);
+	}
+
+	@GetMapping("/latest")
+	public ResponseEntity<Date> getLastSaleDate() throws IOException {
+
+		return new ResponseEntity<Date>(orderRepository.getMaxDate(), HttpStatus.OK);
 	}
 }

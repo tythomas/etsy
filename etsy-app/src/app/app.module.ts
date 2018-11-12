@@ -8,6 +8,10 @@ import { MaterialModule } from 'src/shared/material.module';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { StateSummaryComponent } from './components/state-summary/state-summary.component';
 import { AllOrderSummaryComponent } from './components/all-order-summary/all-order-summary.component';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { AppRoutingModule } from 'src/shared/app.routes';
+import { ListingsComponent } from './components/listings/listings.component';
+import { EmptyGrComponent } from './components/empty-gr/empty-gr.component';
 
 
 @NgModule({
@@ -15,11 +19,15 @@ import { AllOrderSummaryComponent } from './components/all-order-summary/all-ord
     AppComponent,
     DashboardComponent,
     StateSummaryComponent,
-    AllOrderSummaryComponent
+    AllOrderSummaryComponent,
+    NavBarComponent,
+    ListingsComponent,
+    EmptyGrComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
+    AppRoutingModule,
     ServicesModule
   ],
   providers: [ StateSummaryService ],
