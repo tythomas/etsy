@@ -21,7 +21,6 @@ public class Listing {
 	private BigDecimal price;
 	private Integer quantity;
 	
-	@Transient
 	String pic1;
 	
 	@Transient
