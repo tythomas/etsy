@@ -1,74 +1,78 @@
 <mat-toolbar id="nav-bar" color="primary" class="mat-elevation-z2">
-  <button id="menu-button" mat-icon-button (click)="menuClick()">
-      <mat-icon>menu</mat-icon>
-  </button>
-  <span class="title">Etsy Reporting</span>
-  <span class="spacer"></span>
-  <span>As of {{latestDate | date}}</span>
+    <button id="menu-button" mat-icon-button (click)="menuClick()">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <span class="title">Etsy Reporting</span>
+    <span class="spacer"></span>
+    <span>As of {{latestDate | date}}</span>
 </mat-toolbar>
 
 <div class="top-spacer"></div>
 
 <mat-sidenav-container class="drawer-container">
-  <mat-sidenav id="drawer" mode="side" [ngClass]="isMin === true ? 'min' : 'max'" [opened]="mobileQuery.matches || isOpened"
-      class="mat-elevation-z2" fixedInViewport>
-      <div class="drawer-header">
-          Menu
-      </div>
-      <div>
-          <div class="drawer-sub-header" *ngIf="!isMin">
-              <h3>Orders Summary</h3>
-          </div>
-          <ul>
-            <li matTooltip="{{isMin ? 'All Orders' : ''}}">
-                <a routerLink="summary" routerLinkActive="active">
-                    <mat-icon>store_mall_directory</mat-icon>
-                    <span *ngIf="!isMin">All</span>
-                </a>
-            </li>
-            <li matTooltip="{{isMin ? 'By Month' : ''}}">
-                <a routerLink="summary-month" routerLinkActive="active">
-                    <mat-icon>calendar_today</mat-icon>
-                    <span *ngIf="!isMin">By Month</span>
-                </a>
-            </li>
-            <li matTooltip="{{isMin ? 'By State' : ''}}">
-                  <a routerLink="summary-state" routerLinkActive="active">
-                      <mat-icon>location_city</mat-icon>
-                      <span *ngIf="!isMin">By State</span>
-                  </a>
-              </li>
-          </ul>
-          <mat-divider></mat-divider>
-      </div>
+    <mat-sidenav id="drawer" mode="side" [ngClass]="isMin === true ? 'min' : 'max'" [opened]="mobileQuery.matches || isOpened"
+        class="mat-elevation-z2" fixedInViewport>
+        <div class="drawer-header">
+            Menu
+        </div>
+        <div>
+            <div class="drawer-sub-header" *ngIf="!isMin">
+                <h3>Orders Summary</h3>
+            </div>
+            <ul>
+                <li matTooltip="{{isMin ? 'All Orders' : ''}}">
+                    <a routerLink="summary" routerLinkActive="active">
+                        <mat-icon>store_mall_directory</mat-icon>
+                        <span *ngIf="!isMin">All</span>
+                    </a>
+                </li>
+                <li matTooltip="{{isMin ? 'By Month' : ''}}">
+                    <a routerLink="summary-month" routerLinkActive="active">
+                        <mat-icon>calendar_today</mat-icon>
+                        <span *ngIf="!isMin">By Month</span>
+                    </a>
+                </li>
+                <li matTooltip="{{isMin ? 'By State' : ''}}">
+                    <a routerLink="summary-state" routerLinkActive="active">
+                        <mat-icon>location_city</mat-icon>
+                        <span *ngIf="!isMin">By State</span>
+                    </a>
+                </li>
+            </ul>
+            <mat-divider></mat-divider>
+        </div>
 
-      <div>
-          <div class="drawer-sub-header" *ngIf="!isMin">
-              <h3>Listings</h3>
-          </div>
-          <ul>
-              <li matTooltip="{{isMin ? 'No Tubs' : ''}}">
-                  <a routerLink="listings" routerLinkActive="active">
-                      <mat-icon>save_alt</mat-icon>
-                      <span *ngIf="!isMin">No Tubs</span>
-                  </a>
-              </li>
-          </ul>
-      </div>
+        <div>
+            <div class="drawer-sub-header" *ngIf="!isMin">
+                <h3>Listings</h3>
+            </div>
+            <ul>
+                <li matTooltip="{{isMin ? 'No Tubs' : ''}}">
+                    <a routerLink="listings" routerLinkActive="active">
+                        <mat-icon>save_alt</mat-icon>
+                        <span *ngIf="!isMin">No Tubs</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
 
 
-      <div class="menu-sub-container">
-          <button mat-icon-button class="min-icon" [ngClass]="isMin === true ? 'min' : 'max'" (click)="onMinClick()"
-              matTooltip="{{isMin ? 'Maximize Sidebar' : 'Minimize Sidebar'}}">
-              <mat-icon>keyboard_arrow_left</mat-icon>
-          </button>
-      </div>
-      <mat-divider></mat-divider>
+        <div class="menu-sub-container">
+            <button mat-icon-button class="min-icon" [ngClass]="isMin === true ? 'min' : 'max'" (click)="onMinClick()"
+                matTooltip="{{isMin ? 'Maximize Sidebar' : 'Minimize Sidebar'}}">
+                <mat-icon>keyboard_arrow_left</mat-icon>
+            </button>
+        </div>
+        <mat-divider></mat-divider>
 
-  </mat-sidenav>
+    </mat-sidenav>
 
-  <mat-sidenav-content id="drawer-content" [ngClass]="isMin === true ? 'min' : 'max'">
-      <router-outlet #route="outlet"></router-outlet>
-  </mat-sidenav-content>
+    <mat-sidenav-content id="drawer-content" [ngClass]="isMin === true ? 'min' : 'max'">
+        <div class="view-container">
+            <div class="sub-view-card">
+                <router-outlet #route="outlet"></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
 
 </mat-sidenav-container>
