@@ -1,0 +1,34 @@
+@mixin save-feature($theme) {
+    $warn: map-get($theme, warn);
+
+    .panel-snack-bar-container {
+        width: 100vw !important;
+        max-width: 100vw !important;
+    }
+
+    .panel-snack-bar-container-warn {
+        width: 100vw !important;
+        max-width: 100vw !important;
+        background: mat-color($warn);
+
+        .message {
+            display: inline-flex;
+        }
+
+        #error-icon {
+            font-size: 3rem;
+            margin: 24px 24px 0 0;
+        }
+    }
+
+    .transparent .mat-dialog-container {
+        box-shadow: none !important;
+        background: rgba(0, 0, 0, 0.0) !important;
+    }
+
+    .dialog-container {
+        text-align: center;
+        min-width: 60vw;
+    }
+
+}

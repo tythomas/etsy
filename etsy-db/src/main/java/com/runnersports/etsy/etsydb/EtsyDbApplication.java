@@ -24,6 +24,7 @@ public class EtsyDbApplication {
 	    config.setAllowCredentials(true);
 		config.addAllowedOrigin("http://localhost");
 	    config.addAllowedOrigin("http://localhost:4200");
+	    config.addAllowedOrigin("http://localhost:4201");
 	    config.addAllowedHeader("Content-Type");
 	    config.addAllowedHeader("Cache-Control");
 	    config.addAllowedHeader("Pragma");

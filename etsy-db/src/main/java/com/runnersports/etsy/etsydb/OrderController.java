@@ -35,6 +35,11 @@ public class OrderController {
 		return new ResponseEntity<List<OrderSummary>>(orderSummaryRepository.getSummaryByState(), HttpStatus.OK);
 	}
 	
+	@GetMapping("/monthsummary")
+	public ResponseEntity<List<OrderSummary>> getMonthSummary() throws IOException {
+		return new ResponseEntity<List<OrderSummary>>(orderSummaryRepository.getSummaryByMonth(), HttpStatus.OK);
+	}
+	
 	@GetMapping("/allorders")
 	public ResponseEntity<OrderSummary> getAllOrderSummary() throws IOException {
 		return new ResponseEntity<OrderSummary>(orderSummaryRepository.getAllSales(), HttpStatus.OK);

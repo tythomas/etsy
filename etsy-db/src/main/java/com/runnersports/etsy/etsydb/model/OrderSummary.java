@@ -25,6 +25,14 @@ public class OrderSummary {
 		this.totalShipping = totalShipping;
 	}
 
+	public OrderSummary(Integer month, String monthName, Long numOrders, BigDecimal totalAmount, BigDecimal totalTax, BigDecimal totalShipping) {
+		this.numOrders = numOrders.intValue();
+		this.totalAmount = totalAmount;
+		this.totalTax = totalTax;
+		this.totalShipping = totalShipping;
+		this.state = monthName;
+	}
+
 	public BigDecimal getTotalAmount() {
 		return totalAmount;
 	}

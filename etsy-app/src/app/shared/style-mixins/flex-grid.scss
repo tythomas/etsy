@@ -1,0 +1,15 @@
+ @mixin flex-grid() {
+
+     .flex-container {
+         clear: both;
+         margin: auto;
+         display: inline-flex;
+         flex-direction: row;
+         flex-wrap: wrap;
+     }
+
+     .flex-item {
+         page-break-after: always;
+         break-after: always;
+     }
+ }

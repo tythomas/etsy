@@ -1,0 +1,91 @@
+@import '~@angular/material/theming';
+
+/* Theme 0f6dbe */
+$custom-typography: mat-typography-config( $font-family: 'Lato, sans-serif',
+$headline: mat-typography-level(32px, 48px, 700),
+$body-1: mat-typography-level(16px, 24px, 500));
+
+@include mat-core($custom-typography);
+
+/*
+    for hcsc all color
+    shades should be the same color
+*/
+$mat-hcsc-blue: (
+  100:#005587,
+  200: #005587,
+  400: #005587,
+  500: #005587,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$mat-hcsc-gray: (
+  100:#F3F3F3,
+  200: #F3F3F3,
+  400: #F3F3F3,
+  500: #F3F3F3,
+  600: #757575,
+  700: #616161,
+  800: #424242,
+  900: #212121,
+  contrast: (
+    50: $black-87-opacity,
+    100: $black-87-opacity,
+    200: $black-87-opacity,
+    300: $black-87-opacity,
+    400: $black-87-opacity,
+    500: white,
+    600: white,
+    700: white,
+    800: $white-87-opacity,
+    900: $white-87-opacity,
+    A100: $black-87-opacity,
+    A200: white,
+    A400: white,
+    A700: white,
+  )
+);
+
+$etsy-app-primary: mat-palette($mat-hcsc-blue);
+$etsy-app-accent : mat-palette($mat-hcsc-gray, 200);
+$etsy-app-warn : mat-palette($mat-red, 700);
+
+@include mat-base-typography($custom-typography);
+@include mat-checkbox-typography($custom-typography);
+@include angular-material-typography($custom-typography);
+
+$etsy-app-theme: mat-light-theme($etsy-app-primary, $etsy-app-accent, $etsy-app-warn);
+
+@include angular-material-theme($etsy-app-theme);
+
+$media-map: (
+    small-max-width: 480px,
+    medium-max-width: 600px,
+    large-max-width: 960px,
+    x-large-max-width: 1280px
+);
+
+/* Application Frame */
+@import './app/shared/style-mixins/flex-grid.scss';
+@import './app/shared/style-mixins/save-feature.scss';
+@import './app/app.component.scss';
+
+@include flex-grid();
+@include save-feature($etsy-app-theme);
+@include app($etsy-app-theme, $media-map);
+@include app-drawer($etsy-app-theme, $media-map);

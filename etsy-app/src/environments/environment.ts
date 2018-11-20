@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   getStateSummaryApi: 'http://localhost:8080/order/statesummary',
+  getMonthSummaryApi: 'http://localhost:8080/order/monthsummary',
   getLatestDateApi: 'http://localhost:8080/order/latest',
   getAllOrdersSummaryApi: 'http://localhost:8080/order/allorders',
   getEmptyGRApi: 'http://localhost:8080/listing/gr'

@@ -1,0 +1,282 @@
+@mixin app($theme, $media-map) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $drawer-font-color: mat-color($accent);
+
+  .back-button {
+    position: fixed;
+    top: 84px;
+    right: -90%;
+    background-color: mat-color($primary);
+
+    mat-icon {
+      color: $drawer-font-color
+    }
+    
+  }
+
+  button.user-pill {
+    font-size: 1.2rem;
+  }
+
+  .button-group {
+    padding-top: 16px;
+    margin: auto;
+    width: 95%;
+    text-align: left;
+  }
+  .view-container {
+    margin: 0;
+
+    h1,
+    h2,
+    h3 {
+      color: mat-color($primary);
+    }
+  }
+
+  .sub-view-card {
+    $primary: map-get($theme, primary);
+    padding: 128px 64px 64px 64px;
+    text-align: center;
+
+    h2 {
+      color: mat-color($primary);
+    }
+  }
+
+  @media (max-width: #{map-get($media-map, medium-max-width)}) {
+    .sub-view-card {
+      padding: 32px 0;
+    }
+  }
+
+  mat-form-field {
+    width: 95%;
+  }
+
+  button.primary {
+    background-color: mat-color($primary);
+    color:$drawer-font-color;
+  }
+}
+
+@mixin app-drawer($theme, $media-map) {
+  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
+  $warn: map-get($theme, warn);
+  $drawer-font-color: mat-color($accent);
+
+  .error {
+    color: mat-color($warn);
+  }
+
+  #nav-bar {
+    position: fixed;
+    z-index: 2;
+  }
+
+  #nav-bar > .spacer {
+    flex: 1 1 auto;
+  }
+
+  #nav-bar > .title {
+    display: none;
+  }
+
+  #menu-button {
+    display: inline;
+  }
+
+  @media (min-width: #{map-get($media-map, medium-max-width)}) {
+    #menu-button {
+      display: none;
+    }
+
+    #nav-bar > .title {
+      margin-left: 2rem;
+      font-size: 1.5em;
+      display: inline;
+    }
+  }
+
+    #drawer.min {
+      width: 100px;
+      transition-duration: 1s;
+
+      .drawer-header {
+        border-style: inset;
+        border-color: mat-color($accent, 800);
+        background-color: mat-color($accent, 900);
+        color: $drawer-font-color;
+      }
+
+      h3 {
+        color: $drawer-font-color;
+      }
+
+      a {
+        color: $drawer-font-color;
+      }
+    }
+
+    #drawer.max {
+      width: 250px;
+      transition-duration: 1s;
+
+      .drawer-header {
+        border-style: inset;
+        border-color: mat-color($accent, 800);
+        background-color: mat-color($accent, 900);
+        color: $drawer-font-color;
+      }
+
+      .drawer-sub-header {
+        padding: 4px 0 4px;
+        border-style: inset;
+        border-color: mat-color($accent, 800);
+        background-color: mat-color($accent, 900);
+        color: $drawer-font-color;
+      }
+
+
+      h3 {
+        color: $drawer-font-color;
+      }
+
+      a {
+        color: $drawer-font-color;
+      }
+    }
+
+    #drawer {
+      position: fixed;
+      background-color: mat-color($accent, 800);
+      width: 250px;
+      text-align: center;
+      transition-duration: 1s;
+
+      .drawer-header {
+          background-color: mat-color($accent, 800);
+          color: $drawer-font-color;
+          font-size: 2rem;
+          padding: 75px 8px 8px 8px;
+      }
+
+      h3 {
+          text-align: left;
+          color: $drawer-font-color;
+          margin-left: 16px;
+      }
+
+      a {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          text-decoration: none;
+          font-size: 1.1rem;
+          font-weight: 700;
+          display: inline-flex;
+          vertical-align: bottom;
+          mat-icon {
+              line-height: 80%;
+          }
+      }
+
+      li {
+          color: mat-color($primary);
+          list-style: none;
+          margin-bottom: 12px;
+      }
+
+      li:hover a {
+          color: white;
+      }
+
+      mat-icon {
+          margin-right: 16px;
+      }
+
+      .menu-sub-container {
+        width: 100%;
+        text-align: right;
+      }
+
+      .min-icon {
+        color: white;
+        margin: 16px;
+        mat-icon {
+          font-size: 2.2rem;
+        }
+      }
+
+      .min-icon.min {
+        mat-icon {
+          -o-transform: scaleX(-1);
+          -moz-transform: scaleX(-1);
+          -webkit-transform: scaleX(-1);
+          -ms-transform: scaleX(-1);
+          transform: scaleX(-1);
+          transition-duration: 1s;
+        }
+      }
+  }
+
+  #drawer-content.min {
+    margin-left: 100px !important;
+    transition-duration: 1s;
+  }
+
+  #drawer-content.max {
+    transition-duration: 1s;
+  }
+
+  #drawer-content {
+      min-height: 100vh;
+  }
+
+  
+  @media screen and (max-height: 900px) {
+      .drawer-sub-header {
+        padding: 0;
+        margin: 0;
+
+        h3 {
+          font-size: 1rem;
+          margin: 4px;
+        }
+      }
+
+      #drawer {
+
+        .drawer-header {
+          font-size: 1.4rem;
+          padding-top: 70px;
+        }
+
+        ul {
+          margin: 8px 0 8px 0;
+        }
+
+        li {
+          margin-bottom: 4px;
+        }
+
+        a {
+          font-size: 1rem;
+        }
+
+        mat-icon {
+          font-size: 1.4rem;
+        }
+        
+        .min-icon {
+          margin: 12px;
+          mat-icon {
+            font-size: 1rem;
+          }
+        }
+    }
+  }
+
+}
