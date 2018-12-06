@@ -4,3 +4,19 @@ SELECT count(*) as numsales, sum(order_value) as total, sum(sales_tax) as totalt
 Group by month
 SELECT month(sale_date), monthName(sale_date), count(*) as NumOrders, sum(order_value) as sales, sum(shipping_amount) as shipping FROM SOLD_ORDER group by month(sale_date), monthName(sale_date) order by month(sale_date)
 
+
+SELECT tub, count(*) as count FROM LISTING where tub like 'GR%' group by tub order by count 
+SELECT title FROM LISTING where tub ='GR58'
+
+GRHULL??
+
+
+Should have room....
+GR58
+GR6
+GR49
+GRTT
+GR37
+
+Need Checked
+

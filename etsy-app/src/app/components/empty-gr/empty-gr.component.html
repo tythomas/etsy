@@ -1,9 +1,13 @@
-
-<mat-list>
-    <mat-list-item *ngFor="let listing of listings">
-      <img matListAvatar src={{listing.pic1}} >
-      <p matLine>
-        <span> {{listing.title}} </span>
-      </p>
-    </mat-list-item>
-  </mat-list>
+<div class="main-div">
+  <mat-card>
+    <mat-card-title>Listings with "GR" ({{listings.length}})</mat-card-title>
+    <mat-list>
+      <mat-list-item *ngFor="let listing of listings">
+        <img matListAvatar src={{listing.pic1}}>
+        <p matLine>
+          <span> {{listing.title}} </span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </mat-card>
+</div>

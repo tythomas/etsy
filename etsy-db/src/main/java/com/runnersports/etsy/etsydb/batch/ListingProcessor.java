@@ -12,7 +12,12 @@ public class ListingProcessor implements ItemProcessor<Listing, Listing>{
 	public Listing process(Listing item) throws Exception {
 		
 		
-		String gr = item.getDescription().substring(item.getDescription().lastIndexOf("\n") + 1).trim();	
+		String gr = item.getDescription().substring(item.getDescription().lastIndexOf("\n") + 1).trim();
+		gr = gr.replaceAll("\\s","");
+		gr = gr.replaceAll("\\(","");
+		gr = gr.replaceAll("\\)","");
+		gr = gr.replaceAll("separate","");
+		gr = gr.replaceAll("verified","");
 		if (gr.length() > 24) gr = "GR";
 		item.setTub(gr);
 		
