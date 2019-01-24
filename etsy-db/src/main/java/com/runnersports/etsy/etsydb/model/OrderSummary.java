@@ -9,6 +9,7 @@ public class OrderSummary {
 	private BigDecimal totalTax;
 	private Integer numOrders;
 	private String state;
+	private Integer year;
 	
 	public OrderSummary(Long numOrders, BigDecimal totalAmount, BigDecimal totalTax, BigDecimal totalShipping, String state) {
 		this.numOrders = numOrders.intValue();
@@ -25,12 +26,13 @@ public class OrderSummary {
 		this.totalShipping = totalShipping;
 	}
 
-	public OrderSummary(Integer month, String monthName, Long numOrders, BigDecimal totalAmount, BigDecimal totalTax, BigDecimal totalShipping) {
+	public OrderSummary(Integer year, Integer month, String monthName, Long numOrders, BigDecimal totalAmount, BigDecimal totalTax, BigDecimal totalShipping) {
 		this.numOrders = numOrders.intValue();
 		this.totalAmount = totalAmount;
 		this.totalTax = totalTax;
 		this.totalShipping = totalShipping;
 		this.state = monthName;
+		this.year = year;
 	}
 
 	public BigDecimal getTotalAmount() {
@@ -68,6 +70,14 @@ public class OrderSummary {
 	public String toString() {
 		return "OrderSummary [totalAmount=" + totalAmount + ", totalShipping=" + totalShipping + ", totalTax="
 				+ totalTax + ", numOrders=" + numOrders + ", state=" + state + "]";
+	}
+
+	public Integer getYear() {
+		return year;
+	}
+
+	public void setYear(Integer year) {
+		this.year = year;
 	}
 	
 	

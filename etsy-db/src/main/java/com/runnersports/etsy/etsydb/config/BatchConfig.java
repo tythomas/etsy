@@ -13,13 +13,27 @@ public class BatchConfig {
 
 	@Bean
 	public Job job(JobBuilderFactory jobFactory,
-			@Qualifier("orders-step") Step orderStep,
+			@Qualifier("orders-step-2012") Step orderStep2012,
+			@Qualifier("orders-step-2013") Step orderStep2013,
+			@Qualifier("orders-step-2014") Step orderStep2014,
+			@Qualifier("orders-step-2015") Step orderStep2015,
+			@Qualifier("orders-step-2016") Step orderStep2016,
+			@Qualifier("orders-step-2017") Step orderStep2017,
+			@Qualifier("orders-step-2018") Step orderStep2018,
+			@Qualifier("orders-step-2019") Step orderStep2019,
 			@Qualifier("listings-step") Step listingStep
 			) {
 		
 		return jobFactory.get("load-data")
 			.incrementer(new RunIdIncrementer())
-			.start(orderStep)
+			.start(orderStep2012)
+			.next(orderStep2013)
+			.next(orderStep2014)
+			.next(orderStep2015)
+			.next(orderStep2016)
+			.next(orderStep2017)
+			.next(orderStep2018)
+			.next(orderStep2019)
 			.next(listingStep)
 			.build();
 	}

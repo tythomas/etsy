@@ -8,8 +8,6 @@ SELECT month(sale_date), monthName(sale_date), count(*) as NumOrders, sum(order_
 SELECT tub, count(*) as count FROM LISTING where tub like 'GR%' group by tub order by count 
 SELECT title FROM LISTING where tub ='GR58'
 
-GRHULL??
-
 
 Should have room....
 GR58

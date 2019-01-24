@@ -1,28 +1,17 @@
-th {
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-.mat-column-state {
-    flex: 0 0 10% !important;
-    min-width: 40px !important;
-}
-
-.mat-column-numOrders {
-    flex: 0 0 10% !important;
-    min-width: 40px !important;
-}
-
-.mat-column-totalAmount {
-    flex: 0 0 10% !important;
-    min-width: 90px !important;
-}
-
-.mat-column-totalShipping {
-    flex: 0 0 10% !important;
-    min-width: 90px !important;
-}
-
+.card-deck-container {
+    width: 100%;
+    max-width: 1200px;
+    position: relative;
+    border-radius: 2px;
+    padding: 10px 10px 30px;
+    margin: 10px 10px 10px 10px;
+    background-color: #f5f5f5;
+  }
+  
+  .card-item {
+    padding: 3px 3px 3px 3px;
+  }
+  
 .main-div{
     height: 100vh;
     display: flex;

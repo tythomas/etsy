@@ -29,7 +29,7 @@ public class OrderSummaryRepository {
 	
 	public List<OrderSummary> getSummaryByMonth() {
 		
-		String query = "SELECT NEW com.runnersports.etsy.etsydb.model.OrderSummary(month(sale_date), monthName(sale_date), count(*), sum(orderValue), sum(salesTax), sum(shippingAmount)) FROM Order group by month(sale_date), monthName(sale_date) order by month(sale_date)";
+		String query = "SELECT NEW com.runnersports.etsy.etsydb.model.OrderSummary(year(sale_date), month(sale_date), monthName(sale_date), count(*), sum(orderValue), sum(salesTax), sum(shippingAmount)) FROM Order group by year(sale_date), month(sale_date), monthName(sale_date) order by year(sale_date), month(sale_date)";
 		return (List<OrderSummary>) em.createQuery(query).getResultList();
 	}
 	

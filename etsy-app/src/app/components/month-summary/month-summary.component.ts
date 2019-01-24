@@ -3,36 +3,30 @@ import { OrderSummary } from 'src/app/model/order-summary.model';
 import { Subscription } from 'rxjs';
 import { Sort, MatTableDataSource, MatSort } from '@angular/material';
 import { MonthSummaryService } from 'src/app/services/month-summary/month-summary.service';
+import { OrderSummaryYearly } from 'src/app/model/order-summary-year-model';
 
 @Component({
   selector: 'month-summary',
   templateUrl: './month-summary.component.html',
   styleUrls: ['./month-summary.component.css']
 })
-export class MonthSummaryComponent implements OnInit, OnDestroy, AfterViewInit {
+export class MonthSummaryComponent implements OnInit, OnDestroy {
 
-  subscription: Subscription;
-  dataSource = new MatTableDataSource<OrderSummary>();
-  displayedColumns: string[] = ['month', 'numOrders', 'totalAmount', 'totalShipping', 'totalTax'];
-
-  @ViewChild(MatSort) sort: MatSort;
+  yearlySummary: OrderSummaryYearly[];
+  yearlySummarySub: Subscription;
   
   constructor(private service: MonthSummaryService) {
   }
 
   ngOnInit() {
 
-      this.subscription = this.service.getMonthsSummary().subscribe(orders => {
-          this.dataSource.data = orders;
+      this.yearlySummarySub = this.service.getMonthsSummary().subscribe(orders => {
+          this.yearlySummary = orders;
       });
   }
 
-  ngAfterViewInit() {
-    this.dataSource.sort = this.sort;
-  }
-
   ngOnDestroy() {
-        this.subscription.unsubscribe();
+        this.yearlySummarySub.unsubscribe();
   }
 
 }
