@@ -11,6 +11,10 @@ public class OrderSummary {
 	private String state;
 	private Integer year;
 	
+	public OrderSummary() {
+		super();
+	}
+	
 	public OrderSummary(Long numOrders, BigDecimal totalAmount, BigDecimal totalTax, BigDecimal totalShipping, String state) {
 		this.numOrders = numOrders.intValue();
 		this.totalAmount = totalAmount;

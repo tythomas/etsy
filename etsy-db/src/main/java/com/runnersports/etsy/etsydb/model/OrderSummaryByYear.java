@@ -1,9 +1,7 @@
-package com.runnersports.etsy.etsydb.repository;
+package com.runnersports.etsy.etsydb.model;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import com.runnersports.etsy.etsydb.model.OrderSummary;
 
 public class OrderSummaryByYear {
 

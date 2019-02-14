@@ -15,12 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.runnersports.etsy.etsydb.model.OrderSummary;
+import com.runnersports.etsy.etsydb.model.OrderSummaryByYear;
 import com.runnersports.etsy.etsydb.repository.OrderRepository;
-import com.runnersports.etsy.etsydb.repository.OrderSummaryByYear;
 import com.runnersports.etsy.etsydb.repository.OrderSummaryRepository;
 
 @RestController
-@RequestMapping("/order")
+@RequestMapping(path="/order")
 public class OrderController {
 
 	@Autowired
