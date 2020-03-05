@@ -135,6 +135,28 @@ public class OrderConfig {
 
 	}
 
+	@Bean("orders-step-2020")
+	public Step loadOrdersStep2020(StepBuilderFactory stepFactory, 
+			@Qualifier("orders-reader-2020") ItemReader<Order> reader,
+			ItemProcessor<Order, Order> processor, 
+			ItemWriter<Order> writer) {
+
+		return stepFactory.get("load-orders-2020")
+				.<Order, Order>chunk(100)
+				.reader(reader)
+				.processor(processor)
+				.writer(writer)
+				.build();
+		
+
+	}
+
+	@Bean("orders-reader-2020") 
+	public ItemReader<Order> fileReader2020(@Value("${orders.input.2020}") Resource resource) {
+
+		return getFileReader(resource);
+	}
+	
 	@Bean("orders-reader-2019") 
 	public ItemReader<Order> fileReader2019(@Value("${orders.input.2019}") Resource resource) {
 
