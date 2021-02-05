@@ -22,6 +22,7 @@ public class BatchConfig {
 			@Qualifier("orders-step-2018") Step orderStep2018,
 			@Qualifier("orders-step-2019") Step orderStep2019,
 			@Qualifier("orders-step-2020") Step orderStep2020,
+			@Qualifier("orders-step-2021") Step orderStep2021,
 			@Qualifier("listings-step") Step listingStep
 			) {
 		
@@ -36,6 +37,7 @@ public class BatchConfig {
 			.next(orderStep2018)
 			.next(orderStep2019)
 			.next(orderStep2020)
+			.next(orderStep2021)
 			.next(listingStep)
 			.build();
 	}
